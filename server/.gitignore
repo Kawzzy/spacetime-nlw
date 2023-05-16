@@ -1,0 +1,12 @@
+node_modules
+
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+
+# Keep environment variables out of version control
+.env
