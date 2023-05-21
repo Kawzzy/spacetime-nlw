@@ -25,6 +25,7 @@ app.register(memoriesRoutes);
 app
   .listen({
     port: 3333,
+    host: "0.0.0.0", // config need to runs the mobile authentication routes
   })
   .then(() => {
     console.log("HTTP server running on http://localhost:3333");
