@@ -1,13 +1,18 @@
 import React from "react";
+import { cookies } from "next/headers";
+
 import Copyright from "@/components/Copyright";
 import Hero from "@/components/Hero";
 import SignIn from "@/components/SignIn";
 import EmptyMemories from "@/components/EmptyMemories";
+import Profile from "@/components/Profile";
 
 // A React component is a function that returns HTML
 // Components help us to build simple maintenance code and reuse code
 // Props (Properties) in React are the properties that a component receives as parameters
 const Home = () => {
+  const isAuthenticated = cookies().has("token");
+
   return (
     <main className="grid min-h-screen grid-cols-2">
       {/* Left */}
@@ -18,7 +23,7 @@ const Home = () => {
         {/* Stripes */}
         <div className="absolute bottom-0 right-2 top-0 w-2 bg-stripes" />
 
-        <SignIn />
+        {isAuthenticated ? <Profile /> : <SignIn />}
 
         <Hero />
 
