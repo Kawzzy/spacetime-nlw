@@ -60,8 +60,21 @@ export async function authRoutes(app: FastifyInstance) {
       });
     }
 
+    // the first object of the jwt#sign will have the public infos of our user
+    // the second object will have the sub (subject) that is the identification of our user and the expire time
+    const token = app.jwt.sign(
+      {
+        name: user.name,
+        avatarUrl: user.avatarUrl,
+      },
+      {
+        sub: user.id,
+        expiresIn: "10 days",
+      }
+    );
+
     return {
-      user,
+      token,
     };
   });
 }
