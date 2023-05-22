@@ -4,7 +4,7 @@ import { Text, View } from "react-native";
 const Memories = () => {
   return (
     <View className="flex-1 items-center justify-center">
-      <Text>Memories</Text>
+      <Text className="text-gray-50">Memories</Text>
     </View>
   );
 };
